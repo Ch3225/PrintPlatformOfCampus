@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css">
+		</link>
+		<title>我的信息</title>
+	</head>
+	<body>
+		<div class="row justify-content-center">
+			<div class="col-center-block col-xs-12 col-md-10 jumbotron myformdiv">
+				<h2 class="text-center"> 我的信息 </h2><br />
+				<form class="bs-example bs-example-form" role="form">
+					<div class="row">
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg">
+							<span class="input-group-addon ">
+								<b>id</b>
+							</span>
+							<input type="text" class="form-control" placeholder="限中国大陆手机号" disabled="true">
+							<br />
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg">
+							<span class="input-group-addon ">
+								<b>用户名</b>
+								<a id='modifyusername' href="javascript:myfunc('modify','username')">修改</a>
+								<a id='modifiedusername' href="javascript:myfunc('modified','username')" hidden="true" data-toggle="modal"
+								 data-target="#myModal">完成修改</a>
+							</span>
+							<input id="username" type="text" class="form-control" placeholder="限中国大陆手机号" disabled="true">
+							<br />
+						</div>
+						<br />
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg">
+							<span class="input-group-addon ">
+								<b>密码</b>
+								<a id='modifypassword' href="javascript:myfunc('modify','password')">修改</a>
+								<a id='modifiedpassword' href="javascript:myfunc('modified','password')" hidden="true" data-toggle="modal"
+								 data-target="#myModal">完成修改</a>
+							</span>
+							<input id="password" type="password" class="form-control" placeholder="限中国大陆手机号" disabled="true">
+							<br />
+						</div>
+						<div id="divconfirmpassword" class="col-xs-12 col-md-12 col-lg-6 input-group-lg" hidden="true">
+							<span class="input-group-addon ">
+								<b>确认密码</b>
+							</span>
+							<input id="confirmpassword" type="password" class="form-control" placeholder="限中国大陆手机号">
+							<br />
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg">
+							<span class="input-group-addon ">
+								<b>手机号码</b>
+								<a id='modifyphonenumber' href="javascript:myfunc('modify','phonenumber')">修改</a>
+								<a id='modifiedphonenumber' href="javascript:myfunc('modified','phonenumber')" hidden="true" data-toggle="modal"
+								 data-target="#myModal">完成修改</a>
+							</span>
+							<input id="phonenumber" type="text" class="form-control" placeholder="限中国大陆手机号" disabled="true">
+							<br />
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg">
+							<span class="input-textgroup-addon ">
+								<b>邮箱</b>
+								<a id='modifyemail' href="javascript:myfunc('modify','email')">修改</a>
+								<a id='modifiedemail' href="javascript:myfunc('modified','email')" hidden="true" data-toggle="modal"
+								 data-target="#myModal">完成修改</a>
+							</span>
+							<input id="email" type="email" class="form-control" placeholder="限中国大陆手机号" disabled="true">
+							<br />
+						</div>
+						<div class="col-xs-12 col-md-12 col-lg-6 input-group-lg" hidden="true">
+							<span class="input-textgroup-addon ">
+								<b>地址</b>
+							</span>
+						</div>
+						
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title">请输入验证码</h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div id="captcha">
+		
+						</div>
+					</div>
+		
+					<!-- 模态框底部 -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary confirm">确定</button>
+						<button type="button" class="btn btn-secondary cancel" data-dismiss="modal">取消</button>
+					</div>
+		
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>
+
+
+
+<script>
+	function pageOnLoad() {
+		document.getElementById('username').disabled = true;
+		document.getElementById('password').disabled = true;
+		document.getElementById('phonenumber').disabled = true;
+		document.getElementById('email').disabled = true;
+		document.getElementById('divconfirmpassword').hidden = true;
+
+		document.getElementById('modified' + 'username').hidden = true;
+		document.getElementById('modify' + 'username').hidden = false;
+		document.getElementById('modified' + 'password').hidden = true;
+		document.getElementById('modify' + 'password').hidden = false;
+		document.getElementById('modified' + 'phonenumber').hidden = true;
+		document.getElementById('modify' + 'phonenumber').hidden = false;
+		document.getElementById('modified' + 'email').hidden = true;
+		document.getElementById('modify' + 'email').hidden = false;
+	}
+
+	function myfunc(step, str) {
+		pageOnLoad();
+		
+		if (step == 'modify') {
+			document.getElementById(str).disabled = false;
+			document.getElementById('modified' + str).hidden = false;
+			document.getElementById('modify' + str).hidden = true;
+			switch (str) {
+				case 'username':
+
+					break;
+				case 'password':
+					document.getElementById('divconfirmpassword').hidden = false;
+					break;
+				case 'phonenumber':
+
+					break;
+				case 'email':
+
+					break;
+			}
+		} else {
+			//doPost
+		}
+	}
+</script>
+
+<script>
+	pageOnLoad();
+</script>

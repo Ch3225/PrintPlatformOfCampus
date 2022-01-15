@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css"></link>
+		<title>快速创建订单</title>
+	</head>
+	<body>
+		<div class="row justify-content-center">
+			<div class="col-center-block col-md-8 col-sm-10 col-xs-12 jumbotron myformdiv">
+				<h2 class="text-center"> 请选择为您服务的商家 </h2><br />
+				<div class="col-xs-12 input-group-lg">
+					<span class="input-group-addon">
+						<b>输入地点或在图上点击一个地址以检索周围商家。</b>
+						<b>也可以直接点击红色点商家。</b>
+					</span>
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="input-group">
+								<input type="text" class="form-control" aria-label="...">
+								<div class="input-group-btn">
+									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+									 aria-expanded="false">我的地址 <span class="caret"></span></button>
+									<ul class="dropdown-menu dropdown-menu-right">
+										<li><a href="#">Action</a></li>
+										<li><a href="#">Another action</a></li>
+										<li><a href="#">Something else here</a></li>
+										<li role="separator" class="divider"></li>
+										<li><a href="#">Separated link</a></li>
+									</ul>
+								</div><!-- /btn-group -->
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+					</div>
+					<br />
+				</div>
+				<div id="container" class="container col-xs-12 input-group-lg" style="height: 500px">
+				</div>
+				<br />
+				<div class="input-group-lg">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<b>商家列表</b><br />
+						</li>
+						<li class="list-group-item">
+							<b>商家一</b><br />
+							<b>非加急就绪时间: xx:xx</b><br />
+							<b>不加急费用: xx.xx元</b><br />
+							<b>加急费用: xx.xx元</b><br />
+							<div class="btn-group" role="group" aria-label="...">
+								<button type="button" class="btn btn-default btn-group-large">加急打印</button>
+								<button type="button" class="btn btn-default btn-group-large">不加急打印</button>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<b>商家二</b><br />
+							<b>非加急就绪时间: xx:xx</b><br />
+							<b>不加急费用: xx.xx元</b><br />
+							<b>加急费用: xx.xx元</b><br />
+							<div class="btn-group" role="group" aria-label="...">
+								<button type="button" class="btn btn-default btn-group-large">加急打印</button>
+								<button type="button" class="btn btn-default btn-group-large">不加急打印</button>
+							</div>
+						</li>
+						<li class="list-group-item">
+							<b>商家三</b><br />
+							<b>非加急就绪时间: xx:xx</b><br />
+							<b>不加急费用: xx.xx元</b><br />
+							<b>加急费用: xx.xx元</b><br />
+							<div class="btn-group" role="group" aria-label="...">
+								<button type="button" class="btn btn-default btn-group-large">加急打印</button>
+								<button type="button" class="btn btn-default btn-group-large">不加急打印</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="container mt-3">
+					<ul class="pagination">
+						<li class="page-item"><a class="page-link" href="#">上一步</a></li>
+						<li class="page-item"><a class="page-link" href="#">下一步</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e37ff172854fdbf80358a438c8d071fa"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+
+<script type="text/javascript">
+	var marker = undefined;
+
+	function showInfoClick(e) {
+		var text = '经纬度为[' + e.lnglat.getLng() + ',' + e.lnglat.getLat() + ']';
+		document.querySelector("#text").innerText = text;
+		if (marker != undefined) {
+			map.remove(marker);
+		}
+		marker = new AMap.Marker({
+			position: [e.lnglat.getLng(), e.lnglat.getLat()] //位置
+		})
+		map.add(marker); //添加到地图
+	}
+
+	var map = new AMap.Map("container", {
+		resizeEnable: true
+	});
+
+
+
+	map.on('click', showInfoClick);
+</script>

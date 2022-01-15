@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css">
+		</link>
+		<title>快印注册</title>
+	</head>
+	<body>
+
+		<!-- 在外层添加一个div，把行内容居中，添加.row .justify-content-center -->
+		<div class="row justify-content-center">
+			<!-- 下面是我要居中的div，添加.col-center-block -->
+			<div class="col-center-block col-lg-6 col-md-8 col-sm-10 col-xs-12 jumbotron myformdiv">
+				<h2 class="text-center">欢迎注册校园快印系统！</h2><br />
+
+				<form class="bs-example bs-example-form" role="form">
+					<div class="input-group-lg">
+						<span class="input-group-addon "><b>手机号</b></span>
+						<input type="email" class="form-control" placeholder="限中国大陆手机号">
+					</div>
+					<br />
+					<div class="input-group-lg">
+						<span class="input-group-addon "><b>手机验证码</b></span>
+						<input type="email" class="form-control" placeholder="6位数字">
+					</div>
+					<br />
+					<div class="input-group-lg">
+						<span class="input-group-addon"><b>用户名</b></span>
+						<input type="text" class="form-control" placeholder="6-16位任意字符">
+					</div>
+					<br />
+					<div class="input-group-lg">
+						<span class="input-group-addon "><b>密码</b></span>
+						<input type="password" class="form-control" placeholder="8-18位英文字母/数字/特殊字符">
+					</div>
+					<br />
+					<div id="captcha"></div>
+					<br />
+					<div style="margin-top: 2px;">
+						<button type="button" class="btn text-center btn-outline-light btn-lg"><a href="#">注册</a></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>

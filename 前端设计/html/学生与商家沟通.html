@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css">
+		<link rel="stylesheet" href="../css/chat.css" />
+		
+
+		</link>
+		<title>正在和...聊天</title> 
+	</head>
+	<body>
+		<div class="row justify-content-center">
+			<div class="col-center-block col-sm-10 col-xs-12 jumbotron myformdiv">
+				<h2 class="text-center"> 正在和xxx聊天 </h2><br />
+				<div class="container">
+					<div class="content">
+						<div class="item item-center"><span>昨天 12:35</span></div>
+						<div class="item item-center"><span>你已添加了凡繁烦，现在可以开始聊天了。</span></div>
+						<div class="item item-left">
+							<div class="avatar"><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=25668084,2889217189&fm=26&gp=0.jpg" /></div>
+							<div class="bubble bubble-left">您好,我在武汉，你可以直接送过来吗，我有时间的话，可以自己过去拿<br />！！！<br />123</div>
+						</div>
+				
+						<div class="item item-right">
+							<div class="bubble bubble-right">hello<br />你好呀</div>
+							<div class="avatar"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3313909130,2406410525&fm=15&gp=0.jpg" /></div>
+						</div>
+						<div class="item item-center"><span>昨天 13:15</span></div>
+						<div class="item item-right">
+							<div class="bubble bubble-right">刚刚不在，不好意思</div>
+							<div class="avatar"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3313909130,2406410525&fm=15&gp=0.jpg" /></div>
+						</div>
+						<div class="item item-left">
+							<div class="avatar"><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=25668084,2889217189&fm=26&gp=0.jpg" /></div>
+							<div class="bubble bubble-left">没事<br />你继续！</div>
+						</div>
+						<div class="item item-left">
+							<div class="avatar"><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=25668084,2889217189&fm=26&gp=0.jpg" /></div>
+							<div class="bubble bubble-left">看到了<br />在下面</div>
+						</div>
+						<div class="item item-left">
+							<div class="avatar"><img src="https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=25668084,2889217189&fm=26&gp=0.jpg" /></div>
+							<div class="bubble bubble-left">你发一个<br />刚刚网卡了</div>
+						</div>
+						<div class="item item-right">
+							<div class="bubble bubble-right">可以<br />一会儿再发给你</div>
+							<div class="avatar"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3313909130,2406410525&fm=15&gp=0.jpg" /></div>
+						</div>
+					</div>
+					<div class="input-area">
+						<textarea name="text" id="textarea"></textarea>
+						<div class="button-area">
+							<button id="send-btn" onclick="send()">发 送</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>
+
+<script>
+	function send() {
+		let text = document.querySelector('#textarea').value;
+		if (!text) {
+			alert('请输入内容');
+			return;
+		}
+		let item = document.createElement('div');
+		item.className = 'item item-right';
+		item.innerHTML =
+			`<div class="bubble bubble-left">${text}</div><div class="avatar"><img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3313909130,2406410525&fm=15&gp=0.jpg" /></div>`;
+		document.querySelector('.content').appendChild(item);
+		document.querySelector('#textarea').value = '';
+		document.querySelector('#textarea').focus();
+		//滚动条置底
+		let height = document.querySelector('.content').scrollHeight;
+		document.querySelector(".content").scrollTop = height;
+	}
+</script>

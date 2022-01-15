@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css">
+		</link>
+		<title>快速创建订单</title>
+	</head>
+	<body>
+		<div class="row justify-content-center">
+			<div class="col-center-block col-md-8 col-sm-10 col-xs-12 jumbotron myformdiv">
+				<h2 class="text-center"> 请填写投诉内容 </h2><br />
+				<div class="input-group-lg">
+					<span class="input-group-addon "><b>投诉的商家</b></span>
+					<input type="email" class="form-control" placeholder="投诉的订单号">
+				</div>
+				<div class="input-group-lg">
+					<span class="input-group-addon "><b>投诉的订单</b></span>
+					<input type="email" class="form-control" placeholder="投诉的订单号">
+				</div>
+				<div class="input-group-lg">
+					<span class="input-group-addon "><b>投诉的内容</b></span>
+					<textarea class="form-control" placeholder=""></textarea>
+				</div>
+
+				<span class="input-group-addon"><b>选择文件作为提交的附件</b></span>
+				<div class="col-xs-10" style="height: 150px; background-color: aqua;" hidden="true">
+					<b>请将文件拖拽到这里</b>
+				</div>
+				<input id="inputfile" name="inputfile" type="file" class="file" multiple="true" hidden="true" onchange="selectFile()">
+
+				<div style="margin-top: 2px;">
+					<button type="button" class="btn text-center btn-outline-light btn-lg" onclick="document.getElementById('inputfile').click()"><a
+						 href="#">选择附件</a></button>
+					<button type="button" class="btn text-center btn-outline-light btn-lg"><a href="#">提交附件</a></button>
+				</div>
+				<div style="margin-top: 2px;">
+					<button type="button" class="btn text-center btn-outline-light btn-lg"><a href="#">提交</a></button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e37ff172854fdbf80358a438c8d071fa"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+
+<script type="text/javascript">
+	var marker = undefined;
+
+	function showInfoClick(e) {
+		var text = '经纬度为[' + e.lnglat.getLng() + ',' + e.lnglat.getLat() + ']';
+		document.querySelector("#text").innerText = text;
+		if (marker != undefined) {
+			map.remove(marker);
+		}
+		marker = new AMap.Marker({
+			position: [e.lnglat.getLng(), e.lnglat.getLat()] //位置
+		})
+		map.add(marker); //添加到地图
+	}
+
+	var map = new AMap.Map("container", {
+		resizeEnable: true
+	});
+
+
+
+	map.on('click', showInfoClick);
+</script>

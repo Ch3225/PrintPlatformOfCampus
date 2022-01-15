@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../css/mystyle.css"> </link>
+		<title>快印登录</title>
+		
+
+	</head>
+	<body>
+		<!-- 在外层添加一个div，把行内容居中，添加.row .justify-content-center -->
+		<div class="row justify-content-center">
+			<!-- 下面是我要居中的div，添加.col-center-block -->
+			<div class="col-center-block col-lg-6 col-md-8 col-sm-10 col-xs-12 jumbotron myformdiv">
+				<h2 class="text-center">欢迎使用校园快印系统！</h2><br />
+				<div>
+					<form class="bs-example bs-example-form" role="form">
+						<div class="input-group-lg">
+							<span class="input-group-addon "><b>账户</b></span>
+							<input type="email" class="form-control" placeholder="手机号/用户名">
+						</div>
+						<br />
+						<div class="input-group-lg">
+							<span class="input-group-addon "><b>密码</b></span>
+							<input type="password" class="form-control" placeholder="账户密码">
+						</div>
+						<br />
+						<div id="captcha"></div>
+						<br />
+						<div style="margin-top: 2px;">
+							<button type="button" class="btn text-center btn-outline-light btn-lg"><a href="#">登录</a></button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script src="https://cdn.dingxiang-inc.com/ctu-group/captcha-ui/index.js" crossorigin="anonymous"></script>
+<script src="../js/captcha.js"></script>

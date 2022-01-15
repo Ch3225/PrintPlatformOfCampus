@@ -1,0 +1,19 @@
+body {
+	background: url('https://api.sunweihu.com/api/bing1/api.php');
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.myformdiv {
+	background-color: white;
+	opacity: 0.9;
+}
+
+.justify-content-center {
+	padding: 5%;
+}
+
+.col-center-block {
+	position: relative;
+	display: block;
+}
