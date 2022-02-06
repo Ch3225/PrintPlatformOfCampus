@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+		<title>简报 &mdash; 快印平台</title>
+
+		<!-- General CSS Files -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+		 crossorigin="anonymous">
+
+		<!-- CSS Libraries -->
+
+		<!-- Template CSS -->
+		<link rel="stylesheet" href="../assets/css/style.css">
+		<link rel="stylesheet" href="../assets/css/components.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="main-wrapper">
+				@@include('include/navbar_customer.html')
+				@@include('include/sidebar_customer.html')
+
+				<!-- Main Content -->
+				<div class="main-content">
+					<section class="section">
+						<div class="section-header">
+							<h1>晚上好，<b>客户1！</b></h1>
+						</div>
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title"> 活动状态的订单
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">24</div>
+												<div class="card-stats-item-label">未付款</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">12</div>
+												<div class="card-stats-item-label">准备中</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">23</div>
+												<div class="card-stats-item-label">已就绪</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-file-alt"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>共计</h4>
+										</div>
+										<div class="card-body">
+											59
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title">审计（RMB）
+											<div class="dropdown d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">1.20</div>
+												<div class="card-stats-item-label">未付款</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">12.10</div>
+												<div class="card-stats-item-label">本月花费</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">121.00</div>
+												<div class="card-stats-item-label">共计花费</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-dollar-sign"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>余额</h4>
+										</div>
+										<div class="card-body">
+											27.13
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title">文档暂存区
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">66</div>
+												<div class="card-stats-item-label">文档数目</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">222MB</div>
+												<div class="card-stats-item-label">已用</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">1GB</div>
+												<div class="card-stats-item-label">合计</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-laptop"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>可用</h4>
+										</div>
+										<div class="card-body">
+											<h4>802MB</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8 col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>订单</h4>
+										<div class="card-header-action dropdown">
+											<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">已就绪</a>
+											<ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+												<li class="dropdown-title">状态</li>
+												<li><a href="#" class="dropdown-item">未付款</a></li>
+												<li><a href="#" class="dropdown-item">准备中</a></li>
+												<li><a href="#" class="dropdown-item active">已就绪</a></li>
+												<li><a href="#" class="dropdown-item">已完成</a></li>
+												<li><a href="#" class="dropdown-item">全部</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-body p-0">
+										<div class="table-responsive table-invoice">
+											<table class="table table-striped">
+												<tr>
+													<th>ID</th>
+													<th>文档名</th>
+													<th>商家</th>
+													<th>状态</th>
+													<th>打印方式</th>
+													<th>...</th>
+												</tr>
+												<tr>
+													<td><a href="#">20220101120202078</a></td>
+													<td class="font-weight-600">未命名文档.docx</td>
+													<th>商家1</th>
+													<td>
+														<div class="badge badge-success">已就绪</div>
+													</td>
+													<td>A4单面黑白*2</td>
+													<td>
+														<a href="#" class="btn btn-primary">Detail</a>
+													</td>
+												</tr>
+												<tr>
+													<td><a href="#">20220101120220078</a></td>
+													<td class="font-weight-600">青春恋爱指南.docx</td>
+													<th>商家1</th>
+													<td>
+														<div class="badge badge-success">已就绪</div>
+													</td>
+													<td>A4单面黑白*100</td>
+													<td>
+														<a href="#" class="btn btn-primary">Detail</a>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title"> 首选
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="modify-default">修改</a>
+											</div>
+										</div>
+									</div>
+									<ul class="list-unstyled">
+										<li class="media">
+											<div class="card-icon shadow-secondary bg-secondary">
+												<i class="fas fa-archive"></i>
+											</div>
+											<div class="card-wrap">
+												<div class="card-header">
+													<h4>默认商家</h4>
+												</div>
+												<div class="card-body">
+													商家1
+												</div>
+											</div>
+										</li>
+										<li class="media">
+											<div class="card-icon shadow-secondary bg-secondary">
+												<i class="fas fa-archive"></i>
+											</div>
+											<div class="card-wrap">
+												<div class="card-header">
+													<h4>默认打印方式</h4>
+												</div>
+												<div class="card-body">
+													A4单面打印
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				@@include('include/footer_customer.html')
+			</div>
+		</div>
+
+		<!-- General JS Scripts -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		 crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="../assets/js/stisla.js"></script>
+
+		<!-- JS Libraies -->
+
+		<!-- Template JS File -->
+		<script src="../assets/js/scripts.js"></script>
+		<script src="../assets/js/custom.js"></script>
+
+		<!-- Page Specific JS File -->
+	</body>
+</html>

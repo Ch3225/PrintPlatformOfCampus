@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+		<title>简报 &mdash; 快印平台</title>
+
+		<!-- General CSS Files -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		 crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+		 crossorigin="anonymous">
+
+		<!-- CSS Libraries -->
+
+		<!-- Template CSS -->
+		<link rel="stylesheet" href="../assets/css/style.css">
+		<link rel="stylesheet" href="../assets/css/components.css">
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="main-wrapper">
+				<div class="navbar-bg"></div>
+				<nav class="navbar navbar-expand-lg main-navbar">
+					<form class="form-inline mr-auto">
+						<ul class="navbar-nav mr-3">
+							<li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+							<li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+						</ul>
+						<div class="search-element">
+							<input class="form-control" type="search" placeholder="在找些什么吗？" aria-label="Search" data-width="250">
+							<button class="btn" type="submit"><i class="fas fa-search"></i></button>
+							<div class="search-backdrop"></div>
+							<div class="search-result">
+								<div class="search-header">
+									商家
+								</div>
+								<div class="search-item">
+									<a href="#">商家1</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">商家2</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">商家3</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-header">
+									订单
+								</div>
+								<div class="search-item">
+									<a href="#">订单1</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">订单2</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">订单3</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-header">
+									模板与文档
+								</div>
+								<div class="search-item">
+									<a href="#">文档1</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">文档2</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+								<div class="search-item">
+									<a href="#">文档3</a>
+									<a href="#" class="search-close"><i class="fas fa-times"></i></a>
+								</div>
+							</div>
+						</div>
+					</form>
+					<ul class="navbar-nav navbar-right">
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle beep"><i
+								 class="far fa-envelope"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">
+									讯息
+									<div class="float-right">
+										<a href="#">已读所有</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content dropdown-list-message">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<div class="dropdown-item-avatar">
+											<img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle">
+											<div class="is-online"></div>
+										</div>
+										<div class="dropdown-item-desc">
+											<b>商家1</b>
+											<p>你的订单确定是这么印吗？</p>
+											<div class="time">10分钟前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<div class="dropdown-item-avatar">
+											<img alt="image" src="../assets/img/avatar/avatar-2.png" class="rounded-circle">
+										</div>
+										<div class="dropdown-item-desc">
+											<b>商家2</b>
+											<p>马上为您处理好，请您放心</p>
+											<div class="time">10小时前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<div class="dropdown-item-avatar">
+											<img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle">
+										</div>
+										<div class="dropdown-item-desc">
+											<b>商家3</b>
+											<p>您的订单已经按照你的要求打印好了。</p>
+											<div class="time">12小时前</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-footer text-center">
+									<a href="#">查看所有私信 <i class="fas fa-chevron-right"></i></a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i
+								 class="far fa-bell"></i></a>
+							<div class="dropdown-menu dropdown-list dropdown-menu-right">
+								<div class="dropdown-header">通知
+									<div class="float-right">
+										<a href="#">已读所有</a>
+									</div>
+								</div>
+								<div class="dropdown-list-content dropdown-list-icons">
+									<a href="#" class="dropdown-item dropdown-item-unread">
+										<div class="dropdown-item-icon bg-primary text-white">
+											<i class="fas fa-code"></i>
+										</div>
+										<div class="dropdown-item-desc">
+											我们上线了新功能！
+											<div class="time">2分钟前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<div class="dropdown-item-icon bg-info text-white">
+											<i class="far fa-user"></i>
+										</div>
+										<div class="dropdown-item-desc">
+											<b>您</b> 的个人资料需要完善。
+											<div class="time">10分钟前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<div class="dropdown-item-icon bg-success text-white">
+											<i class="fas fa-check"></i>
+										</div>
+										<div class="dropdown-item-desc">
+											<b>您</b> 已经成功取消了在 <b>商家1</b> 的 <b>订单1</b>
+											<div class="time">12小时前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<div class="dropdown-item-icon bg-danger text-white">
+											<i class="fas fa-exclamation-triangle"></i>
+										</div>
+										<div class="dropdown-item-desc">
+											您需要清理您的模板空间
+											<div class="time">17小时前</div>
+										</div>
+									</a>
+									<a href="#" class="dropdown-item">
+										<div class="dropdown-item-icon bg-info text-white">
+											<i class="fas fa-bell"></i>
+										</div>
+										<div class="dropdown-item-desc">
+											欢迎您来到快印平台！
+											<div class="time">昨天</div>
+										</div>
+									</a>
+								</div>
+								<div class="dropdown-footer text-center">
+									<a href="#">查看所有通知 <i class="fas fa-chevron-right"></i></a>
+								</div>
+							</div>
+						</li>
+						<li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+								<img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+								<div class="d-sm-none d-lg-inline-block">客户1</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<div class="dropdown-title">登录于5分钟前</div>
+								<a href="features-profile.html" class="dropdown-item has-icon">
+									<i class="far fa-user"></i> 个人信息
+								</a>
+								<a href="features-activities.html" class="dropdown-item has-icon">
+									<i class="fas fa-bolt"></i> 订单
+								</a>
+								<a href="features-settings.html" class="dropdown-item has-icon">
+									<i class="fas fa-cog"></i> 设置
+								</a>
+								<div class="dropdown-divider"></div>
+								<a href="#" class="dropdown-item has-icon text-danger">
+									<i class="fas fa-sign-out-alt"></i> 注销
+								</a>
+							</div>
+						</li>
+					</ul>
+				</nav>
+
+				<div class="main-sidebar">
+					<aside id="sidebar-wrapper">
+						<div class="sidebar-brand">
+							<a href="index.html">快印平台</a>
+						</div>
+						<div class="sidebar-brand sidebar-brand-sm">
+							<a href="index.html">St</a>
+						</div>
+						<ul class="sidebar-menu">
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="fas fa-fire"></i><span>简报</span></a>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>订单</span></a>
+								<ul class="dropdown-menu ">
+									<li><a class="nav-link" href="#">待创建</a></li>
+									<li><a class="nav-link" href="#">待付款</a></li>
+									<li><a class="nav-link" href="#">准备中</a></li>
+									<li><a class="nav-link" href="#">可领取</a></li>
+									<li><a class="nav-link" href="#">已完成</a></li>
+								</ul>
+							</li>
+							<li class="nav-item">
+								<a href="#" class="nav-link"><i class="fas fa-dollar-sign"></i><span>审计</span></a>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link has-dropdown"><i class="fas fa-bolt"></i> <span>偏好</span></a>
+								<ul class="dropdown-menu">
+									<li><a class="nav-link" href="#">商家</a></li>
+									<li><a class="nav-link" href="#">打印方式</a></li>
+									<li><a class="nav-link" href="#">模板文档</a></li>
+								</ul>
+							</li>
+							<li class="nav-item dropdown">
+								<a href="#" class="nav-link has-dropdown"><i class="far fa-bicycle"></i> <span>功能性</span></a>
+								<ul class="dropdown-menu ">
+									<li><a class="nav-link" href="#">模板广场</a></li>
+									<li><a class="nav-link" href="#">检索商家</a></li>
+									<li><a class="nav-link" href="#">投诉与反馈</a></li>
+								</ul>
+							</li>
+						</ul>
+						<div class="mt-4 mb-4 p-3 hide-sidebar-mini">
+							<a href="https://getstisla.com/docs" class="btn btn-primary btn-lg btn-block btn-icon-split">
+								<i class="fas fa-fire"></i> 创建订单！
+							</a>
+						</div>
+					</aside>
+				</div>
+
+
+				<!-- Main Content -->
+				<div class="main-content">
+					<section class="section">
+						<div class="section-header">
+							<h1>晚上好，<b>客户1！</b></h1>
+						</div>
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title"> 活动状态的订单
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">24</div>
+												<div class="card-stats-item-label">未付款</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">12</div>
+												<div class="card-stats-item-label">准备中</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">23</div>
+												<div class="card-stats-item-label">已就绪</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-file-alt"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>共计</h4>
+										</div>
+										<div class="card-body">
+											59
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title">审计（RMB）
+											<div class="dropdown d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">1.20</div>
+												<div class="card-stats-item-label">未付款</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">12.10</div>
+												<div class="card-stats-item-label">本月花费</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">121.00</div>
+												<div class="card-stats-item-label">共计花费</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-dollar-sign"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>余额</h4>
+										</div>
+										<div class="card-body">
+											27.13
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title">文档暂存区
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="balance-timely">详情</a>
+											</div>
+										</div>
+										<div class="card-stats-items">
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">66</div>
+												<div class="card-stats-item-label">文档数目</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">222MB</div>
+												<div class="card-stats-item-label">已用</div>
+											</div>
+											<div class="card-stats-item">
+												<div class="card-stats-item-count">1GB</div>
+												<div class="card-stats-item-label">合计</div>
+											</div>
+										</div>
+									</div>
+									<div class="card-icon shadow-primary bg-primary">
+										<i class="fas fa-laptop"></i>
+									</div>
+									<div class="card-wrap">
+										<div class="card-header">
+											<h4>可用</h4>
+										</div>
+										<div class="card-body">
+											<h4>802MB</h4>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-8 col-sm-12">
+								<div class="card">
+									<div class="card-header">
+										<h4>订单</h4>
+										<div class="card-header-action dropdown">
+											<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">已就绪</a>
+											<ul class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+												<li class="dropdown-title">状态</li>
+												<li><a href="#" class="dropdown-item">未付款</a></li>
+												<li><a href="#" class="dropdown-item">准备中</a></li>
+												<li><a href="#" class="dropdown-item active">已就绪</a></li>
+												<li><a href="#" class="dropdown-item">已完成</a></li>
+												<li><a href="#" class="dropdown-item">全部</a></li>
+											</ul>
+										</div>
+									</div>
+									<div class="card-body p-0">
+										<div class="table-responsive table-invoice">
+											<table class="table table-striped">
+												<tr>
+													<th>ID</th>
+													<th>文档名</th>
+													<th>商家</th>
+													<th>状态</th>
+													<th>打印方式</th>
+													<th>...</th>
+												</tr>
+												<tr>
+													<td><a href="#">20220101120202078</a></td>
+													<td class="font-weight-600">未命名文档.docx</td>
+													<th>商家1</th>
+													<td>
+														<div class="badge badge-success">已就绪</div>
+													</td>
+													<td>A4单面黑白*2</td>
+													<td>
+														<a href="#" class="btn btn-primary">Detail</a>
+													</td>
+												</tr>
+												<tr>
+													<td><a href="#">20220101120220078</a></td>
+													<td class="font-weight-600">青春恋爱指南.docx</td>
+													<th>商家1</th>
+													<td>
+														<div class="badge badge-success">已就绪</div>
+													</td>
+													<td>A4单面黑白*100</td>
+													<td>
+														<a href="#" class="btn btn-primary">Detail</a>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-4 col-sm-12">
+								<div class="card card-statistic-2">
+									<div class="card-stats">
+										<div class="card-stats-title"> 首选
+											<div class="d-inline">
+												<a class="font-weight-600 " href="#" id="modify-default">修改</a>
+											</div>
+										</div>
+									</div>
+									<ul class="list-unstyled">
+										<li class="media">
+											<div class="card-icon shadow-secondary bg-secondary">
+												<i class="fas fa-archive"></i>
+											</div>
+											<div class="card-wrap">
+												<div class="card-header">
+													<h4>默认商家</h4>
+												</div>
+												<div class="card-body">
+													商家1
+												</div>
+											</div>
+										</li>
+										<li class="media">
+											<div class="card-icon shadow-secondary bg-secondary">
+												<i class="fas fa-archive"></i>
+											</div>
+											<div class="card-wrap">
+												<div class="card-header">
+													<h4>默认打印方式</h4>
+												</div>
+												<div class="card-body">
+													A4单面打印
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+				<footer class="main-footer">
+					<div class="footer-left">
+						Copyright &copy; 2022 <div class="bullet"></div> Designed by <a href="https://github.com/Ch3225">Ch3225</a>.
+					</div>
+					<div class="footer-right">
+						Special thanks <a href="#">here</a>
+					</div>
+				</footer>
+
+			</div>
+		</div>
+
+		<!-- General JS Scripts -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		 crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		 crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+		<script src="../assets/js/stisla.js"></script>
+
+		<!-- JS Libraies -->
+
+		<!-- Template JS File -->
+		<script src="../assets/js/scripts.js"></script>
+		<script src="../assets/js/custom.js"></script>
+
+		<!-- Page Specific JS File -->
+	</body>
+</html>

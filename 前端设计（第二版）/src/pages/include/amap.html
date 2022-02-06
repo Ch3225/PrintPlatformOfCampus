@@ -1,0 +1,23 @@
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=e37ff172854fdbf80358a438c8d071fa"></script>
+<script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+<script type="text/javascript">
+	var marker = undefined;
+
+	function showInfoClick(e) {
+		var text = '经纬度为[' + e.lnglat.getLng() + ',' + e.lnglat.getLat() + ']';
+		document.querySelector("#text").innerText = text;
+		if (marker != undefined) {
+			map.remove(marker);
+		}
+		marker = new AMap.Marker({
+			position: [e.lnglat.getLng(), e.lnglat.getLat()] //位置
+		})
+		map.add(marker); //添加到地图
+	}
+
+	var map = new AMap.Map("container", {
+		resizeEnable: true
+	});
+
+	map.on('click', showInfoClick);
+</script>
