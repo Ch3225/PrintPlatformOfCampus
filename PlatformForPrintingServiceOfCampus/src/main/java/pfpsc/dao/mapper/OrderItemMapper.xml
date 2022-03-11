@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.OrderItemMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.pojo.OrderItem">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="o_order_id" jdbcType="INTEGER" property="oOrderId" />
+    <result column="f_file_id" jdbcType="INTEGER" property="fFileId" />
+    <result column="m_printmethod_id" jdbcType="INTEGER" property="mPrintmethodId" />
+    <result column="e_state" jdbcType="INTEGER" property="eState" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, o_order_id, f_file_id, m_printmethod_id, e_state, count
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from o_orderitem
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from o_orderitem
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.pojo.OrderItem">
+    insert into o_orderitem (id, o_order_id, f_file_id, 
+      m_printmethod_id, e_state, count
+      )
+    values (#{id,jdbcType=INTEGER}, #{oOrderId,jdbcType=INTEGER}, #{fFileId,jdbcType=INTEGER}, 
+      #{mPrintmethodId,jdbcType=INTEGER}, #{eState,jdbcType=INTEGER}, #{count,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.pojo.OrderItem">
+    insert into o_orderitem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="oOrderId != null">
+        o_order_id,
+      </if>
+      <if test="fFileId != null">
+        f_file_id,
+      </if>
+      <if test="mPrintmethodId != null">
+        m_printmethod_id,
+      </if>
+      <if test="eState != null">
+        e_state,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="oOrderId != null">
+        #{oOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="fFileId != null">
+        #{fFileId,jdbcType=INTEGER},
+      </if>
+      <if test="mPrintmethodId != null">
+        #{mPrintmethodId,jdbcType=INTEGER},
+      </if>
+      <if test="eState != null">
+        #{eState,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.pojo.OrderItem">
+    update o_orderitem
+    <set>
+      <if test="oOrderId != null">
+        o_order_id = #{oOrderId,jdbcType=INTEGER},
+      </if>
+      <if test="fFileId != null">
+        f_file_id = #{fFileId,jdbcType=INTEGER},
+      </if>
+      <if test="mPrintmethodId != null">
+        m_printmethod_id = #{mPrintmethodId,jdbcType=INTEGER},
+      </if>
+      <if test="eState != null">
+        e_state = #{eState,jdbcType=INTEGER},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.pojo.OrderItem">
+    update o_orderitem
+    set o_order_id = #{oOrderId,jdbcType=INTEGER},
+      f_file_id = #{fFileId,jdbcType=INTEGER},
+      m_printmethod_id = #{mPrintmethodId,jdbcType=INTEGER},
+      e_state = #{eState,jdbcType=INTEGER},
+      count = #{count,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

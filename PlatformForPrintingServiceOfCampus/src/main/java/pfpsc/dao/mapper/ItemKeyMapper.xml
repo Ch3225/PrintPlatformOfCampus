@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.ItemKeyMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.pojo.ItemKey">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="keyname" jdbcType="VARCHAR" property="keyname" />
+    <result column="m_printchoice_id" jdbcType="INTEGER" property="mPrintchoiceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, keyname, m_printchoice_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_printkey
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from m_printkey
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.pojo.ItemKey">
+    insert into m_printkey (id, keyname, m_printchoice_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{keyname,jdbcType=VARCHAR}, #{mPrintchoiceId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.pojo.ItemKey">
+    insert into m_printkey
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="keyname != null">
+        keyname,
+      </if>
+      <if test="mPrintchoiceId != null">
+        m_printchoice_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="keyname != null">
+        #{keyname,jdbcType=VARCHAR},
+      </if>
+      <if test="mPrintchoiceId != null">
+        #{mPrintchoiceId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.pojo.ItemKey">
+    update m_printkey
+    <set>
+      <if test="keyname != null">
+        keyname = #{keyname,jdbcType=VARCHAR},
+      </if>
+      <if test="mPrintchoiceId != null">
+        m_printchoice_id = #{mPrintchoiceId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.pojo.ItemKey">
+    update m_printkey
+    set keyname = #{keyname,jdbcType=VARCHAR},
+      m_printchoice_id = #{mPrintchoiceId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

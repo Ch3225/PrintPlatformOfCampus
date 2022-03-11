@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.ShopSupportMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.pojo.ShopSupport">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="s_shop_id" jdbcType="INTEGER" property="sShopId" />
+    <result column="m_printmethod_id" jdbcType="INTEGER" property="mPrintmethodId" />
+    <result column="c_chargefunction_id" jdbcType="INTEGER" property="cChargefunctionId" />
+    <result column="s_reference" jdbcType="INTEGER" property="sReference" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, s_shop_id, m_printmethod_id, c_chargefunction_id, s_reference
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from s_shopsupport
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from s_shopsupport
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.pojo.ShopSupport">
+    insert into s_shopsupport (id, s_shop_id, m_printmethod_id, 
+      c_chargefunction_id, s_reference)
+    values (#{id,jdbcType=INTEGER}, #{sShopId,jdbcType=INTEGER}, #{mPrintmethodId,jdbcType=INTEGER}, 
+      #{cChargefunctionId,jdbcType=INTEGER}, #{sReference,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.pojo.ShopSupport">
+    insert into s_shopsupport
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="sShopId != null">
+        s_shop_id,
+      </if>
+      <if test="mPrintmethodId != null">
+        m_printmethod_id,
+      </if>
+      <if test="cChargefunctionId != null">
+        c_chargefunction_id,
+      </if>
+      <if test="sReference != null">
+        s_reference,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sShopId != null">
+        #{sShopId,jdbcType=INTEGER},
+      </if>
+      <if test="mPrintmethodId != null">
+        #{mPrintmethodId,jdbcType=INTEGER},
+      </if>
+      <if test="cChargefunctionId != null">
+        #{cChargefunctionId,jdbcType=INTEGER},
+      </if>
+      <if test="sReference != null">
+        #{sReference,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.pojo.ShopSupport">
+    update s_shopsupport
+    <set>
+      <if test="sShopId != null">
+        s_shop_id = #{sShopId,jdbcType=INTEGER},
+      </if>
+      <if test="mPrintmethodId != null">
+        m_printmethod_id = #{mPrintmethodId,jdbcType=INTEGER},
+      </if>
+      <if test="cChargefunctionId != null">
+        c_chargefunction_id = #{cChargefunctionId,jdbcType=INTEGER},
+      </if>
+      <if test="sReference != null">
+        s_reference = #{sReference,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.pojo.ShopSupport">
+    update s_shopsupport
+    set s_shop_id = #{sShopId,jdbcType=INTEGER},
+      m_printmethod_id = #{mPrintmethodId,jdbcType=INTEGER},
+      c_chargefunction_id = #{cChargefunctionId,jdbcType=INTEGER},
+      s_reference = #{sReference,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

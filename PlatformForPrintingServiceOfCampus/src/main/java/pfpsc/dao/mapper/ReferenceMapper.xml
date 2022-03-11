@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.ReferenceMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.pojo.Reference">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="c_chargefunction_id" jdbcType="INTEGER" property="cChargefunctionId" />
+    <result column="referenceno" jdbcType="INTEGER" property="referenceno" />
+    <result column="varname" jdbcType="CHAR" property="varname" />
+    <result column="referencename" jdbcType="VARCHAR" property="referencename" />
+    <result column="referencedescription" jdbcType="VARCHAR" property="referencedescription" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, c_chargefunction_id, referenceno, varname, referencename, referencedescription
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from c_reference
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from c_reference
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.pojo.Reference">
+    insert into c_reference (id, c_chargefunction_id, referenceno, 
+      varname, referencename, referencedescription
+      )
+    values (#{id,jdbcType=INTEGER}, #{cChargefunctionId,jdbcType=INTEGER}, #{referenceno,jdbcType=INTEGER}, 
+      #{varname,jdbcType=CHAR}, #{referencename,jdbcType=VARCHAR}, #{referencedescription,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.pojo.Reference">
+    insert into c_reference
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="cChargefunctionId != null">
+        c_chargefunction_id,
+      </if>
+      <if test="referenceno != null">
+        referenceno,
+      </if>
+      <if test="varname != null">
+        varname,
+      </if>
+      <if test="referencename != null">
+        referencename,
+      </if>
+      <if test="referencedescription != null">
+        referencedescription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="cChargefunctionId != null">
+        #{cChargefunctionId,jdbcType=INTEGER},
+      </if>
+      <if test="referenceno != null">
+        #{referenceno,jdbcType=INTEGER},
+      </if>
+      <if test="varname != null">
+        #{varname,jdbcType=CHAR},
+      </if>
+      <if test="referencename != null">
+        #{referencename,jdbcType=VARCHAR},
+      </if>
+      <if test="referencedescription != null">
+        #{referencedescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.pojo.Reference">
+    update c_reference
+    <set>
+      <if test="cChargefunctionId != null">
+        c_chargefunction_id = #{cChargefunctionId,jdbcType=INTEGER},
+      </if>
+      <if test="referenceno != null">
+        referenceno = #{referenceno,jdbcType=INTEGER},
+      </if>
+      <if test="varname != null">
+        varname = #{varname,jdbcType=CHAR},
+      </if>
+      <if test="referencename != null">
+        referencename = #{referencename,jdbcType=VARCHAR},
+      </if>
+      <if test="referencedescription != null">
+        referencedescription = #{referencedescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.pojo.Reference">
+    update c_reference
+    set c_chargefunction_id = #{cChargefunctionId,jdbcType=INTEGER},
+      referenceno = #{referenceno,jdbcType=INTEGER},
+      varname = #{varname,jdbcType=CHAR},
+      referencename = #{referencename,jdbcType=VARCHAR},
+      referencedescription = #{referencedescription,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
