@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.pojo.User">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="e_property" jdbcType="INTEGER" property="eProperty" />
+    <result column="e_state" jdbcType="INTEGER" property="eState" />
+    <result column="password" jdbcType="CHAR" property="password" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, e_property, e_state, password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from u_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from u_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.pojo.User">
+    insert into u_user (id, e_property, e_state, 
+      password)
+    values (#{id,jdbcType=INTEGER}, #{eProperty,jdbcType=INTEGER}, #{eState,jdbcType=INTEGER}, 
+      #{password,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.pojo.User">
+    insert into u_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="eProperty != null">
+        e_property,
+      </if>
+      <if test="eState != null">
+        e_state,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="eProperty != null">
+        #{eProperty,jdbcType=INTEGER},
+      </if>
+      <if test="eState != null">
+        #{eState,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.pojo.User">
+    update u_user
+    <set>
+      <if test="eProperty != null">
+        e_property = #{eProperty,jdbcType=INTEGER},
+      </if>
+      <if test="eState != null">
+        e_state = #{eState,jdbcType=INTEGER},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.pojo.User">
+    update u_user
+    set e_property = #{eProperty,jdbcType=INTEGER},
+      e_state = #{eState,jdbcType=INTEGER},
+      password = #{password,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
