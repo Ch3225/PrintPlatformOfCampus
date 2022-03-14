@@ -32,6 +32,17 @@ public class UserController {
 		}
 		return "login";
 	}
+    
+    @RequestMapping("/registerAsCustomer")
+    public String register(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,@RequestParam(value="phone")String username,@RequestParam(value="password")String password) {
+    	User user = userService.registerAsCustomer(username, password);
+    	if(user!=null) {
+			httpServletRequest.getSession().setAttribute("user", user);
+			return "myinfo";
+		}
+    	return "registerAsCustomer";
+    }
+    
     @RequestMapping("/myinfo")
     @ResponseBody
     public UserInfo myinfo(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {

@@ -2,6 +2,7 @@ package pfpsc.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import pfpsc.dao.UserInfoMapper;
 import pfpsc.dao.UserMapper;
@@ -19,8 +20,8 @@ public class UserServiceImpl implements IUserService{
 	@Autowired
 	public UserInfoMapper userInfoDao;
 	
-	public User login(String username, String password) {
-		UserInfo userInfo=userInfoDao.selectByPhoneNumber(username);
+	public User login(String phone, String password) {
+		UserInfo userInfo=userInfoDao.selectByPhoneNumber(phone);
 		Integer id=userInfo.getId();
 		User user=userDao.selectByPrimaryKey(id);
 		if(password.equals(user.getPassword())) {
@@ -34,6 +35,23 @@ public class UserServiceImpl implements IUserService{
 	public UserInfo showInfo(int id) {
 		return userInfoDao.selectByPrimaryKey(id);
 	}
+
+	@Override
+	@Transactional
+	public User registerAsCustomer(String phone, String password) {
+		User user=new User();
+		user.setPassword(password);
+		userDao.insertSelective(user);
+		Integer id=user.getId();
+		UserInfo userInfo=new UserInfo();
+		userInfo.setPhonenumber(phone);
+		userInfo.setName(phone);
+		userInfo.setId(id);
+		userInfoDao.insertSelective(userInfo);
+		return user;
+	}
+
+
 
 
 

@@ -20,13 +20,13 @@
     delete from u_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="pfpsc.pojo.User">
+  <insert id="insert" parameterType="pfpsc.pojo.User" useGeneratedKeys="true" keyProperty="id">
     insert into u_user (id, e_property, e_state, 
       password)
     values (#{id,jdbcType=INTEGER}, #{eProperty,jdbcType=INTEGER}, #{eState,jdbcType=INTEGER}, 
       #{password,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="pfpsc.pojo.User">
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="pfpsc.pojo.User">
     insert into u_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
