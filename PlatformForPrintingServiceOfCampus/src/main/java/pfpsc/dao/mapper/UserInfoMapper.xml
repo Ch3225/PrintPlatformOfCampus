@@ -17,6 +17,12 @@
     from u_infosheet
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByPhoneNumber" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from u_infosheet
+    where phoneNumber = #{phoneNumber,jdbcType=CHAR}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from u_infosheet
     where id = #{id,jdbcType=INTEGER}
