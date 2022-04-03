@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LogHelper>
+	<types>
+		<type tid="1">
+			<name>notification</name>
+			<tags code="1000">
+				<tag tcode="1001">
+					<property>notification to</property>
+					<addon>${user}</addon>
+					<note>为某个用户推送通知</note>
+				</tag>
+				<tag tcode="1002">
+					<property>notification read</property>
+					<addon>${boolean}</addon>
+					<note>某个用户是否已读了通知</note>
+				</tag>
+			</tags>
+		</type>
+		<type tid="2">
+			<name>transfer</name>
+			<tags code="2000">
+				<tag tcode="2001">
+					<property>transfer from</property>
+					<addon>${user}</addon>
+					<note>转账来自</note>
+				</tag>
+				<tag tcode="2002">
+					<property>notification to</property>
+					<addon>${user}</addon>
+					<note>转账给</note>
+				</tag>
+			</tags>
+		</type>
+	</types>
+	<logs>
+		<log>
+			<tags>
+				<tag tcode="1000" value="1" />
+				<tag tcode="1001" value="2" />
+			</tags>
+			<str>
+				收到了一笔新订单。
+			</str>
+		</log>
+	</logs>
+</LogHelper>

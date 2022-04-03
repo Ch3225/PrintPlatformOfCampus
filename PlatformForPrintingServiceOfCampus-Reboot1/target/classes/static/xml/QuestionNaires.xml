@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuestionNaires>
+	<questionnaire nid="1">
+		<note>打印文档</note>
+		<question qid="1" default="1">
+			<note>打印面数</note>
+			<answer aid="1">
+				<note>单面</note>
+			</answer>
+			<answer aid="2">
+				<note>双面</note>
+			</answer>
+		</question>
+		<question qid="2" default="1">
+			<note>打印方式</note>
+			<answer aid="1">
+				<note>黑白印</note>
+			</answer>
+			<answer aid="2">
+				<note>彩印</note>
+			</answer>
+		</question>
+		<question qid="3" default="1">
+			<note>打印用纸</note>
+			<answer aid="1">
+				<note>A4</note>
+			</answer>
+			<answer aid="2">
+				<note>B5</note>
+			</answer>
+		</question>
+	</questionnaire>
+</QuestionNaires> 

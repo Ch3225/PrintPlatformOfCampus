@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ChargeMethods>
+	<ChargeMethod mid="1">
+		<arguments-shop>
+			<argument>
+				<note>常数项系数</note>
+				<name>var1</name>
+			</argument>
+			<argument>
+				<note>一次项系数</note>
+				<name>var2</name>
+			</argument>
+		</arguments-shop>
+		<arguments-customer>
+			<argument>
+				<note>用户文档的页码数</note>
+				<name>page</name>
+			</argument>
+		</arguments-customer>
+		<arguments-fee>
+			<argument>
+				<note>总费用</note>
+				<name>fee</name>
+			</argument>
+		</arguments-fee>
+		<function>
+			function calc(var1,var2,page){
+				return var1+var2*page;
+			}
+			var1=${var1};
+			var2=${var2};
+			page=${page};
+			fee=calc(var1,var2,page).toFixed(2);
+		</function>
+	</ChargeMethod>
+</ChargeMethods>

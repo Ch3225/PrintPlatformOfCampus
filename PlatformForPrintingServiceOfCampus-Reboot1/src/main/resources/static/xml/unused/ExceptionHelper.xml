@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExceptionHelper>
+	<exception>
+		<code>0</code>
+		<string>不明异常</string>
+	</exception>
+	<exception>
+		<code>100</code>
+		<string>无异常</string>
+	</exception>
+	<exception>
+		<code>101</code>
+		<string>登陆失败：用户名和密码不匹配</string>
+	</exception>
+</ExceptionHelper>

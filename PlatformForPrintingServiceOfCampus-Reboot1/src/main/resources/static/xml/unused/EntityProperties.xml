@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityProperties>
+	<scopes>
+		<scope>
+			<name>user</name>
+			<note>user表</note>
+		</scope>
+		<scope>
+			<name>order</name>
+			<note>order表</note>
+		</scope>
+		<scope>
+			<name>shop</name>
+			<note>order表</note>
+		</scope>
+		<scope>
+			<name>log</name>
+			<note>log表</note>
+		</scope>
+	</scopes>
+	<types>
+		<type>
+			<name>state</name>
+			<note>表示实体的状态</note>
+		</type>
+		<type>
+			<name>property</name>
+			<note>表示实体的属性</note>
+		</type>
+	</types>
+	<config-groups>
+		<group gid="1">
+			<scope-name>user</scope-name>
+			<type-name>property</type-name>
+			<config cid="1">
+				<config-name>temporary</config-name>
+				<note>创建订单的临时用户</note>
+			</config>
+			<config cid="2">
+				<config-name>customer</config-name>
+				<note>下订单的客户</note>
+			</config>
+			<config cid="3">
+				<config-name>shopper</config-name>
+				<note>提供服务的商家</note>
+			</config>
+			<config cid="4">
+				<config-name>administrator</config-name>
+				<note>超级管理员</note>
+			</config>
+		</group>
+		<group gid="2">
+			<scope-name>user</scope-name>
+			<type-name>state</type-name>
+			<config cid="1">
+				<config-name>active</config-name>
+				<note>用户处于未封禁状态</note>
+			</config>
+			<config cid="2">
+				<config-name>banned</config-name>
+				<note>用户处于被封禁状态</note>
+			</config>
+		</group>
+		<group gid="3">
+			<scope-name>order</scope-name>
+			<type-name>state</type-name>
+			<config cid="1">
+				<config-name>creating</config-name>
+				<note>订单创建中</note>
+			</config>
+			<config cid="2">
+				<config-name>unpaid</config-name>
+				<note>订单待付款</note>
+			</config>
+			<config cid="3">
+				<config-name>pending</config-name>
+				<note>商家正在准备订单</note>
+			</config>
+			<config cid="4">
+				<config-name>ready</config-name>
+				<note>订单已就绪</note>
+			</config>
+			<config cid="5">
+				<config-name>withdrawing</config-name>
+				<note>订单正在取得</note>
+			</config>
+			<config cid="6">
+				<config-name>finished</config-name>
+				<note>订单已完成</note>
+			</config>
+			<config cid="7">
+				<config-name>cancelled</config-name>
+				<note>订单已取消</note>
+			</config>
+		</group>
+		<group gid="4">
+			<scope-name>shop</scope-name>
+			<type-name>state</type-name>
+			<config cid="1">
+				<config-name>opening</config-name>
+				<note>营业中</note>
+			</config>
+			<config cid="2">
+				<config-name>closed</config-name>
+				<note>休息中</note>
+			</config>
+			<config cid="3">
+				<config-name>pending</config-name>
+				<note>审核中</note>
+			</config>
+			<config cid="4">
+				<config-name>banned</config-name>
+				<note>被封禁</note>
+			</config>
+		</group>
+	</config-groups>
+</EntityProperties>

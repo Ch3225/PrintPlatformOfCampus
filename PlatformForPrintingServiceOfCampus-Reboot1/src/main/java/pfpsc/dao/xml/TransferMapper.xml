@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.impl.TransferMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.model.pojo.Transfer">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="trade_id" jdbcType="INTEGER" property="tradeId" />
+    <result column="money" jdbcType="DECIMAL" property="money" />
+    <result column="from_user" jdbcType="INTEGER" property="fromUser" />
+    <result column="to_user" jdbcType="INTEGER" property="toUser" />
+    <result column="transfer_time" jdbcType="TIMESTAMP" property="transferTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, trade_id, money, from_user, to_user, transfer_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from transfer
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from transfer
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.model.pojo.Transfer">
+    insert into transfer (id, trade_id, money, 
+      from_user, to_user, transfer_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{tradeId,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL}, 
+      #{fromUser,jdbcType=INTEGER}, #{toUser,jdbcType=INTEGER}, #{transferTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.model.pojo.Transfer">
+    insert into transfer
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tradeId != null">
+        trade_id,
+      </if>
+      <if test="money != null">
+        money,
+      </if>
+      <if test="fromUser != null">
+        from_user,
+      </if>
+      <if test="toUser != null">
+        to_user,
+      </if>
+      <if test="transferTime != null">
+        transfer_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tradeId != null">
+        #{tradeId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="fromUser != null">
+        #{fromUser,jdbcType=INTEGER},
+      </if>
+      <if test="toUser != null">
+        #{toUser,jdbcType=INTEGER},
+      </if>
+      <if test="transferTime != null">
+        #{transferTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.model.pojo.Transfer">
+    update transfer
+    <set>
+      <if test="tradeId != null">
+        trade_id = #{tradeId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null">
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="fromUser != null">
+        from_user = #{fromUser,jdbcType=INTEGER},
+      </if>
+      <if test="toUser != null">
+        to_user = #{toUser,jdbcType=INTEGER},
+      </if>
+      <if test="transferTime != null">
+        transfer_time = #{transferTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.model.pojo.Transfer">
+    update transfer
+    set trade_id = #{tradeId,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      from_user = #{fromUser,jdbcType=INTEGER},
+      to_user = #{toUser,jdbcType=INTEGER},
+      transfer_time = #{transferTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pfpsc.dao.impl.SupportMapper">
+  <resultMap id="BaseResultMap" type="pfpsc.model.pojo.Support">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="method" jdbcType="CHAR" property="method" />
+    <result column="function_id" jdbcType="INTEGER" property="functionId" />
+    <result column="arguments" jdbcType="CHAR" property="arguments" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, shop_id, method, function_id, arguments
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from support
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+    <select id="selectByShopAndMethod" parameterType="pfpsc.model.pojo.Support" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from support
+    where 1=1
+    and shop_id = #{shopId,jdbcType=INTEGER}
+    and method = #{method,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from support
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="pfpsc.model.pojo.Support">
+    insert into support (id, shop_id, method, 
+      function_id, arguments)
+    values (#{id,jdbcType=INTEGER}, #{shopId,jdbcType=INTEGER}, #{method,jdbcType=CHAR}, 
+      #{functionId,jdbcType=INTEGER}, #{arguments,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="pfpsc.model.pojo.Support">
+    insert into support
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="method != null">
+        method,
+      </if>
+      <if test="functionId != null">
+        function_id,
+      </if>
+      <if test="arguments != null">
+        arguments,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        #{method,jdbcType=CHAR},
+      </if>
+      <if test="functionId != null">
+        #{functionId,jdbcType=INTEGER},
+      </if>
+      <if test="arguments != null">
+        #{arguments,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="pfpsc.model.pojo.Support">
+    update support
+    <set>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=INTEGER},
+      </if>
+      <if test="method != null">
+        method = #{method,jdbcType=CHAR},
+      </if>
+      <if test="functionId != null">
+        function_id = #{functionId,jdbcType=INTEGER},
+      </if>
+      <if test="arguments != null">
+        arguments = #{arguments,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="pfpsc.model.pojo.Support">
+    update support
+    set shop_id = #{shopId,jdbcType=INTEGER},
+      method = #{method,jdbcType=CHAR},
+      function_id = #{functionId,jdbcType=INTEGER},
+      arguments = #{arguments,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
