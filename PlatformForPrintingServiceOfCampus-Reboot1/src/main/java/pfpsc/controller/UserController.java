@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pfpsc.constant.PageNameConstant;
+import pfpsc.constant.RequestMapConstant;
 import pfpsc.service.impl.IUserService;
 
 @Controller
@@ -16,9 +18,9 @@ public class UserController {
 	@Autowired
 	IUserService userService;
 	
-    @RequestMapping("/index")
+    @RequestMapping(RequestMapConstant.index)
     public String blank_customer(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
-    	return "index";
+    	return PageNameConstant.index;
     }
     
     

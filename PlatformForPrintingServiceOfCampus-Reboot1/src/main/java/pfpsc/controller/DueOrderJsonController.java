@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pfpsc.constant.EntityPropertyConstant;
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.RequestMapConstant;
+import pfpsc.constant.CodeConstant;
 import pfpsc.constant.SessionConstant;
-import pfpsc.dao.impl.TradeMapper;
+import pfpsc.dao.impl.notused.TradeMapper;
 import pfpsc.model.pojo.Document;
 import pfpsc.model.pojo.Shop;
 import pfpsc.model.pojo.Trade;
@@ -49,7 +50,7 @@ public class DueOrderJsonController {
 	@Autowired
 	IFinishOrderService finishOrderService;
 	
-	@RequestMapping("allReadyTrades")
+	@RequestMapping(RequestMapConstant.allReadyTrades)
 	@ResponseBody
 	List<Trade> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
@@ -57,14 +58,14 @@ public class DueOrderJsonController {
 		return trades;
 	}
 	
-	@RequestMapping("finishAPendingTrade")
+	@RequestMapping(RequestMapConstant.finishAPendingTrade)
 	@ResponseBody
 	String dueAPendingTrade(HttpServletRequest request, HttpServletResponse httpServletResponse, @RequestParam("tradeId")Integer tradeId) {
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
 		Trade trade=new Trade();
 		trade.setId(tradeId);
 		finishOrderService.finishAPendingTrade(trade,user);
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 	
 	

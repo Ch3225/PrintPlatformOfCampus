@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pfpsc.constant.EntityPropertyConstant;
-import pfpsc.dao.impl.TradeMapper;
+import pfpsc.dao.impl.notused.TradeMapper;
 import pfpsc.model.pojo.Shop;
 import pfpsc.model.pojo.Trade;
 import pfpsc.service.impl.IDueOrderService;

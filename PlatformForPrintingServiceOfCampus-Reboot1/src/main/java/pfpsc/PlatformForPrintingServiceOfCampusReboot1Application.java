@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import pfpsc.constant.ChargeFunctionConstant;
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.CodeConstant;
 import pfpsc.constant.QuestionNaireConstant;
 
 @SpringBootApplication
@@ -19,7 +19,7 @@ public class PlatformForPrintingServiceOfCampusReboot1Application {
 	
 	public static void constantOnLoad() {
 		QuestionNaireConstant.onLoad();
-		JsonConstant.onLoad();
+		CodeConstant.onLoad();
 		ChargeFunctionConstant.onLoad();
 	}
 

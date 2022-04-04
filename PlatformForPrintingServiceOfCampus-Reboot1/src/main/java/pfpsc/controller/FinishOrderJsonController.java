@@ -21,9 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pfpsc.constant.EntityPropertyConstant;
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.RequestMapConstant;
+import pfpsc.constant.CodeConstant;
 import pfpsc.constant.SessionConstant;
-import pfpsc.dao.impl.TradeMapper;
+import pfpsc.dao.impl.notused.TradeMapper;
 import pfpsc.model.pojo.Document;
 import pfpsc.model.pojo.Shop;
 import pfpsc.model.pojo.Trade;
@@ -45,7 +46,7 @@ public class FinishOrderJsonController {
 	@Autowired
 	IFileService fileService;
 	
-	@RequestMapping("allPendingTrades")
+	@RequestMapping(RequestMapConstant.allPendingTrades)
 	@ResponseBody
 	List<Trade> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
@@ -54,7 +55,7 @@ public class FinishOrderJsonController {
 		return trades;
 	}
 	
-	@RequestMapping("dueAPendingTrade")
+	@RequestMapping(RequestMapConstant.dueAPendingTrade)
 	@ResponseBody
 	String dueAPendingTrade(HttpServletRequest request, HttpServletResponse httpServletResponse, @RequestParam("tradeId")Integer tradeId) {
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
@@ -62,10 +63,10 @@ public class FinishOrderJsonController {
 		Trade trade=new Trade();
 		trade.setId(tradeId);
 		dueOrderService.dueAPendingTrade(trade,shop);
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 	
-	@RequestMapping(value="/document")
+	@RequestMapping(RequestMapConstant.document)
 	@ResponseBody
 	public String downloadResource(HttpSession session, HttpServletRequest request,
 	        HttpServletResponse response,@RequestParam("documentMd5")String documentMd5) {
@@ -99,13 +100,13 @@ public class FinishOrderJsonController {
 				}
 				out.close();
 				input.close();
-				return JsonConstant.CODE_SUCCESS;
+				return CodeConstant.CODE_SUCCESS;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 	    }
-	    return JsonConstant.CODE_ILLEGAL;
+	    return CodeConstant.CODE_ILLEGAL;
 	}
 	
 }

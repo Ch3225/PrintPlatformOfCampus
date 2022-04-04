@@ -16,12 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pfpsc.constant.ChargeFunctionConstant;
 import pfpsc.constant.EntityPropertyConstant;
-import pfpsc.constant.JsonConstant;
-import pfpsc.dao.impl.TradeMapper;
-import pfpsc.dao.impl.ShopMapper;
-import pfpsc.dao.impl.SupportMapper;
-import pfpsc.dao.impl.TransferMapper;
-import pfpsc.dao.impl.UserMapper;
+import pfpsc.dao.impl.notused.ShopMapper;
+import pfpsc.dao.impl.notused.SupportMapper;
+import pfpsc.dao.impl.notused.TradeMapper;
+import pfpsc.dao.impl.notused.TransferMapper;
+import pfpsc.dao.impl.notused.UserMapper;
+import pfpsc.constant.CodeConstant;
 import pfpsc.exception.DefinedException;
 import pfpsc.model.define.ChargeFunction;
 import pfpsc.model.define.Reference;
@@ -86,7 +86,7 @@ public class PlaceOrderServiceImpl implements IPlaceOrderService {
 		} catch (IOException | ScriptException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new DefinedException(JsonConstant.CODE_ILLEGAL);
+			throw new DefinedException(CodeConstant.CODE_ILLEGAL);
 		}
 	}
 
@@ -126,7 +126,7 @@ public class PlaceOrderServiceImpl implements IPlaceOrderService {
 		BigDecimal userToAfterBalance=userToBalance.add(bigDecimalFee);
 		BigDecimal zeroDecimal=new BigDecimal(0);
 		if(!userFromAfterBalance.min(zeroDecimal).equals(zeroDecimal)) {
-			throw new DefinedException(JsonConstant.CODE_ILLEGAL);
+			throw new DefinedException(CodeConstant.CODE_ILLEGAL);
 		}
 		userFrom.setBalance(userFromAfterBalance);
 		userTo.setBalance(userToAfterBalance);

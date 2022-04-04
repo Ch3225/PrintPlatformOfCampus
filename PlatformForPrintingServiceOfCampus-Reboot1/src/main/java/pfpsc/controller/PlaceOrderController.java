@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pfpsc.constant.PageNameConstant;
+import pfpsc.constant.RequestMapConstant;
 import pfpsc.constant.SessionConstant;
 import pfpsc.model.pojo.Trade;
 import pfpsc.model.pojo.Shop;
@@ -22,17 +24,17 @@ public class PlaceOrderController {
 	@Autowired
 	IPlaceOrderService shopService;
 
-	@RequestMapping("/order_step1")
+	@RequestMapping(RequestMapConstant.order_step1)
 	public String order_step1(HttpServletRequest request, HttpServletResponse httpServletResponse) {
-		return "order_step1";
+		return PageNameConstant.order_step1;
 	}
 	
-	@RequestMapping("/order_step2")
+	@RequestMapping(RequestMapConstant.order_step2)
 	public String order_step2(HttpServletRequest request, HttpServletResponse httpServletResponse) {
-		return "order_step2";
+		return PageNameConstant.order_step2;
 	}
 	
-	@RequestMapping("/order_step3")
+	@RequestMapping(RequestMapConstant.order_step3)
 	public String order_step3(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			Model model) {
 		Trade order = (Trade)request.getSession().getAttribute(SessionConstant.SESSION_ORDER);
@@ -46,14 +48,14 @@ public class PlaceOrderController {
 		model.addAttribute("shopMap",shops);
 		model.addAttribute("order",order);
 
-		return "order_step3";
+		return PageNameConstant.order_step3;
 	}
 
-	@RequestMapping("/order_step4")
+	@RequestMapping(RequestMapConstant.order_step4)
 	public String order_step4(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			Model model) {
 		Trade order = (Trade)request.getSession().getAttribute(SessionConstant.SESSION_ORDER);
 		
-		return "order_step4";
+		return PageNameConstant.order_step4;
 	}
 }

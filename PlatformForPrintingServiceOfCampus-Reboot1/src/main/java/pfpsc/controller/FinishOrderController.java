@@ -3,11 +3,14 @@ package pfpsc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import pfpsc.constant.PageNameConstant;
+import pfpsc.constant.RequestMapConstant;
+
 @Controller
 public class FinishOrderController {
 	
-	@RequestMapping("getPaperDocument")
+	@RequestMapping(RequestMapConstant.addPrintMethod)
 	public String dueOrder() {
-		return "getPaperDocument";
+		return PageNameConstant.getPaperDocument;
 	}
 }

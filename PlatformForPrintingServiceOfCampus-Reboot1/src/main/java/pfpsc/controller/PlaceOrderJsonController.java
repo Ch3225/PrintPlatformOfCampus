@@ -18,8 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.CodeConstant;
 import pfpsc.constant.QuestionNaireConstant;
+import pfpsc.constant.RequestMapConstant;
 import pfpsc.constant.SessionConstant;
 import pfpsc.exception.DefinedException;
 import pfpsc.model.define.QuestionNaire;
@@ -41,7 +42,7 @@ public class PlaceOrderJsonController {
 	IPlaceOrderService placeOrderService;
 	
 	
-	@RequestMapping("/createOrder")
+	@RequestMapping(RequestMapConstant.createOrder)
 	@ResponseBody
 	public String createOrder(HttpServletRequest request, HttpServletResponse httpServletResponse) {
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
@@ -50,10 +51,10 @@ public class PlaceOrderJsonController {
 		order.setUserId(user.getId());
 		request.getSession().setAttribute(SessionConstant.SESSION_ORDER, order);
 		
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 	
-	@RequestMapping("/uploadFile")
+	@RequestMapping(RequestMapConstant.uploadFile)
 	@ResponseBody
 	public String fileUpload(HttpServletRequest request, @RequestParam("customFile") CommonsMultipartFile file) {
 		if(DocumentManager.root==null||"".equals(DocumentManager.root)) {			//设置DocumentManager
@@ -70,10 +71,10 @@ public class PlaceOrderJsonController {
 			return e.getCode();
 		}
 		
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 	
-	@RequestMapping("/addPrintMethod")
+	@RequestMapping(RequestMapConstant.addPrintMethod)
 	@ResponseBody
 	public String addPrintMethod(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			@RequestParam("count") String count) {
@@ -96,27 +97,27 @@ public class PlaceOrderJsonController {
 			Integer countInteger=Integer.parseInt(count);
 			order.setCount(countInteger);
 		} catch (NumberFormatException e) {
-			return JsonConstant.CODE_ILLEGAL;
+			return CodeConstant.CODE_ILLEGAL;
 		}
 		
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 	
-	@RequestMapping("/addShop")
+	@RequestMapping(RequestMapConstant.addShop)
 	@ResponseBody
 	public String addShop(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			@RequestParam("shopId") Integer shopId) {
 		Trade order = (Trade) request.getSession().getAttribute(SessionConstant.SESSION_ORDER);
 		if(shopId>=0) {
 			order.setShopId(shopId);
-			return JsonConstant.CODE_SUCCESS;
+			return CodeConstant.CODE_SUCCESS;
 		}
 		else {
-			return JsonConstant.CODE_ILLEGAL;
+			return CodeConstant.CODE_ILLEGAL;
 		}
 	}
 	
-	@RequestMapping("/calculateFee")
+	@RequestMapping(RequestMapConstant.calculateFee)
 	@ResponseBody
 	public String calculateFee(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			@RequestParam("shopId") Integer shopId) {
@@ -135,7 +136,7 @@ public class PlaceOrderJsonController {
 		
 	}
 	
-	@RequestMapping("/transfer")
+	@RequestMapping(RequestMapConstant.transfer)
 	@ResponseBody
 	public String transfer(HttpServletRequest request, HttpServletResponse httpServletResponse,
 			@RequestParam("shopId") Integer shopId) {
@@ -155,14 +156,14 @@ public class PlaceOrderJsonController {
 			boolean b1=placeOrderService.createOrder(order);
 			boolean b2=placeOrderService.makeTransfer(order);
 			if(b1&&b2) {
-				return JsonConstant.CODE_SUCCESS;
+				return CodeConstant.CODE_SUCCESS;
 			} else {
-				return JsonConstant.CODE_UNKNOWNERROR;
+				return CodeConstant.CODE_UNKNOWNERROR;
 			}
 			
 		} catch (DefinedException|NumberFormatException e) {
 			e.printStackTrace();
-			return JsonConstant.CODE_UNKNOWNERROR;
+			return CodeConstant.CODE_UNKNOWNERROR;
 		}
 		
 	}

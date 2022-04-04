@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.CodeConstant;
 
 public class DocumentManager {
 
@@ -25,7 +25,7 @@ public class DocumentManager {
 			file.transferTo(newFile);						//写文件
 		}
 		
-		return JsonConstant.CODE_SUCCESS;
+		return CodeConstant.CODE_SUCCESS;
 	}
 
 	public static File selectDocumentByMD5(String stringMD5) {

@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pfpsc.constant.JsonConstant;
+import pfpsc.constant.CodeConstant;
+import pfpsc.constant.RequestMapConstant;
 import pfpsc.exception.DefinedException;
 import pfpsc.model.pojo.User;
 import pfpsc.service.impl.IUserService;
@@ -21,7 +22,7 @@ public class UserJsonController {
 	@Autowired
 	IUserService userService;
 	
-	@RequestMapping("/login")
+	@RequestMapping(RequestMapConstant.login)
     @ResponseBody
 	public String login(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,@RequestParam(value="phone")String phone,@RequestParam(value="password")String password) {
     	User user=new User();
@@ -31,14 +32,14 @@ public class UserJsonController {
 			User loggedUser = userService.login(user);
 			if(loggedUser!=null) {
 				httpServletRequest.getSession().setAttribute("user", loggedUser);
-				return JsonConstant.CODE_SUCCESS;
+				return CodeConstant.CODE_SUCCESS;
 			}
 			else{
-				return JsonConstant.CODE_UNKNOWNERROR;
+				return CodeConstant.CODE_UNKNOWNERROR;
 			}
 		} catch (DefinedException e) {
 			e.printStackTrace();
-			return JsonConstant.CODE_NOTFILLED;
+			return CodeConstant.CODE_NOTFILLED;
 		}
 	}
 
