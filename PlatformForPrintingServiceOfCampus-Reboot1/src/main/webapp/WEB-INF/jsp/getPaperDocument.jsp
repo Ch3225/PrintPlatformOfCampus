@@ -1,4 +1,6 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@page import="pfpsc.constant.EntityPropertyConstant"%>
+
 <%@page import="org.apache.tomcat.util.bcel.classfile.Constant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -91,15 +93,15 @@
 
 			var idCell = document.createElement('th'); //创建第一列id 
 			idCell.scope = "col";
-			idCell.innerHTML = datarow.id; //填充数据 
+			idCell.innerHTML = datarow.tradeId; //填充数据 
 			row.appendChild(idCell); //加入行
 
 			var fileCell = document.createElement('td'); //创建第一列id 
-			fileCell.innerHTML= datarow.documentMd5;
+			fileCell.innerHTML= datarow.documentMD5;
 			row.appendChild(fileCell);
 
 			var methodCell = document.createElement('td');
-			methodCell.innerHTML = datarow.methodString; //填充数据 
+			methodCell.innerHTML = datarow.documentMethod; //填充数据 
 			row.appendChild(methodCell); //加入行
 
 			var countCell = document.createElement('td');
@@ -107,14 +109,14 @@
 			row.appendChild(countCell); //加入行
 
 			var buttonCell = document.createElement('td');
-			var finisher = getButtonFinisherByTradeId(datarow.id);
+			var finisher = getButtonFinisherByTradeId(datarow.tradeId);
 			row.appendChild(finisher); //加入行
 
 			return row;
 		}
 		function requestTrade() {
 			$.ajax({
-				url : "allReadyTrades",
+				url : "<%= RequestMapConstant.allPendingTrades %>",
 				type : "POST",
 				success : function(data) {
 					refill(data);
@@ -130,7 +132,7 @@
 		}
 		function finishAPendingTrade(orderId) {
 			$.ajax({
-				url : "finishAPendingTrade",
+				url : <%=RequestMapConstant.finishAReadyTrade%>,
 				type : "POST",
 				data : {
 					tradeId : orderId

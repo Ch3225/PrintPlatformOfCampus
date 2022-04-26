@@ -9,7 +9,7 @@ import pfpsc.constant.RequestMapConstant;
 @Controller
 public class FinishOrderController {
 	
-	@RequestMapping(RequestMapConstant.addPrintMethod)
+	@RequestMapping(RequestMapConstant.getPaperDocument)
 	public String dueOrder() {
 		return PageNameConstant.getPaperDocument;
 	}

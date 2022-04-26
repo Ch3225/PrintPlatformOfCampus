@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
@@ -76,12 +77,12 @@
 	<script>
 		function next() {
 			$.ajax({
-				url : "transfer",
+				url : "<%= RequestMapConstant.transfer %>",
 				type : "POST",
 				data : $('#form').serialize(),
 				success : function(data) {
 					if(data=="100"){
-						window.location.replace("order_step4");
+						window.location.replace(<%= RequestMapConstant.order_step4 %>);
 					}
 					else{
 						//TODO
@@ -91,7 +92,7 @@
 		}
 		function calculateFee() {
 			$.ajax({
-				url : "calculateFee",
+				url : "<%= RequestMapConstant.calculateFee %>",
 				type : "POST",
 				data : $('#form').serialize(),
 				success : function(data) {

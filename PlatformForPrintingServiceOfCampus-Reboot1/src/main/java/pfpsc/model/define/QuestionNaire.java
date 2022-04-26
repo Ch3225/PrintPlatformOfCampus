@@ -43,7 +43,7 @@ public class QuestionNaire {
 		
 		for (int i = 0; i < keys.size(); i++) {
 			String str = choiceList.get(i);
-			Integer defaultAnswer = getKeys().get(i).getDefaultAnswer();
+			Integer defaultAnswer = getKeys().get(i).getDefaultAnswer().getAid();
 			if (str.equalsIgnoreCase("" + defaultAnswer)) {
 
 			} else {
@@ -60,7 +60,7 @@ public class QuestionNaire {
 			if(answerId==null) {
 				string+=
 						question.getNote()+":"
-						+question.getAnswerById(question.getDefaultAnswer())+";";
+						+question.getAnswerById(question.getDefaultAnswer().getAid())+";";
 			} else {
 				string+=
 						question.getNote()+":"
@@ -68,6 +68,22 @@ public class QuestionNaire {
 			}
 		}
 		return string;
+	}
+	public String makeStringWithChoice(String string) {
+		String re="";
+		re+=note+";";
+		Map<String, String> map = MapUtility.getMapByString(string);
+		for(Question question:keys) {
+			if(map.get(question.getQid().toString())!=null) {
+				String answerid=map.get(question.getQid().toString());
+				Answer answer=question.getAnswerById(Integer.parseInt(answerid));
+				re+=question.getNote()+":"+answer.getNote()+";";
+			}else {
+				Answer answer=question.getDefaultAnswer();
+				re+=question.getNote()+":"+answer.getNote()+";";
+			}
+		}
+		return re;
 	}
 	
 }

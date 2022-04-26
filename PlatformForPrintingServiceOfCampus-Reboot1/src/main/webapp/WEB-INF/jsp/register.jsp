@@ -1,5 +1,6 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +43,7 @@
 							</div>
 
 							<div class="card-body">
-								<form method="POST" action="registerAsCustomer">
+								<form method="POST" action="<%= RequestMapConstant.vertifyRegister %>">
 									<div class="form-group">
 										<label for="phone">手机号码</label>
 										<div class="input-group mb-3">
@@ -82,14 +83,20 @@
 												name="password-confirm">
 										</div>
 									</div>
-									
+
 									<div class="form-group">
-										<label>请选择您的身份</label> <select class="form-control">
-											<option value="customer">我是学生</option>
-											<option value="shopowner">我是商家</option>
-										</select>
+										<label class="form-label">您的身份</label>
+										<div class="selectgroup w-100">
+											<label class="selectgroup-item"> <input type="radio"
+												name="actor" value="student" class="selectgroup-input" checked="true">
+												<span class="selectgroup-button">学生</span>
+											</label> <label class="selectgroup-item"> <input type="radio"
+												name="actor" value="shopper" class="selectgroup-input">
+												<span class="selectgroup-button">商家</span>
+											</label>
+										</div>
 									</div>
-									
+
 									<div class="form-group">
 										<div class="custom-control custom-checkbox">
 											<input type="checkbox" name="agree"

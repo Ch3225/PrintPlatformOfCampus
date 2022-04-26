@@ -25,8 +25,8 @@ public class Question {
 	public void setAnswerList(List<Answer> answerList) {
 		this.answerList = answerList;
 	}
-	public Integer getDefaultAnswer() {
-		return defaultAnswer;
+	public Answer getDefaultAnswer() {
+		return getAnswerById(defaultAnswer);
 	}
 	public void setDefaultAnswer(Integer defaultAnswer) {
 		this.defaultAnswer = defaultAnswer;

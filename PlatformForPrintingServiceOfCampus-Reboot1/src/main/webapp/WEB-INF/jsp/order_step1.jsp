@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -67,13 +68,6 @@
 								</a>
 							</div>
 						</div>
-						<div class="row" name="next-button">
-								<div class="col-10"></div>
-								<div class="col-2">
-									<a href="order_step2" class="btn btn-primary">下一步</a>
-								</div>
-							</div>
-					</div>
 				</section>
 				<section class="section"></section>
 			</div>
@@ -102,7 +96,7 @@
 
 		function uploadFile() {
 			$.ajax({
-				url : "uploadFile",
+				url : "<%= RequestMapConstant.uploadFile %>",
 				type : "POST",
 				data : new FormData($("#fileform")[0]),
 				processData : false,//告诉ajax不要处理和编码这些数据，直接提交
@@ -123,7 +117,7 @@
 					return xhr;
 				},
 				success: function(){
-					
+					window.location.replace("<%= RequestMapConstant.order_step2 %>");
 				}
 			});
 		}
@@ -138,7 +132,6 @@
 			document.getElementById('progress-bar').innerHTML = progressRate
 					.toFixed(2)
 					+ '%';
-			objPro.value = percentComplete.toString();
 
 		}
 	</script>

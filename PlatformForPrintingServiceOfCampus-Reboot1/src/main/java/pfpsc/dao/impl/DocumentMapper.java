@@ -1,4 +1,4 @@
-package pfpsc.dao.impl.notused;
+package pfpsc.dao.impl;
 
 import pfpsc.model.pojo.Document;
 

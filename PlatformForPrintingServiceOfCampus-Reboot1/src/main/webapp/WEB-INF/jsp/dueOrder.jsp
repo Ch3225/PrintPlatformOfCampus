@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@page import="pfpsc.constant.EntityPropertyConstant"%>
 <%@page import="org.apache.tomcat.util.bcel.classfile.Constant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -99,15 +100,15 @@
 
 			var idCell = document.createElement('th'); //创建第一列id 
 			idCell.scope = "col";
-			idCell.innerHTML = datarow.id; //填充数据 
+			idCell.innerHTML = datarow.tradeId; //填充数据 
 			row.appendChild(idCell); //加入行
 
 			var fileCell = document.createElement('td'); //创建第一列id 
-			var downloader = getButtonDownloaderByMd5(datarow.documentMd5);
+			var downloader = getButtonDownloaderByMd5(datarow.documentMD5);
 			row.appendChild(downloader);
 
 			var methodCell = document.createElement('td');
-			methodCell.innerHTML = datarow.methodString; //填充数据 
+			methodCell.innerHTML = datarow.documentMethod; //填充数据 
 			row.appendChild(methodCell); //加入行
 
 			var countCell = document.createElement('td');
@@ -115,7 +116,7 @@
 			row.appendChild(countCell); //加入行
 
 			var buttonCell = document.createElement('td');
-			var finisher = getButtonFinisherByTradeId(datarow.id);
+			var finisher = getButtonFinisherByTradeId(datarow.tradeId);
 			row.appendChild(finisher); //加入行
 
 			return row;
@@ -136,22 +137,24 @@
 			return buttonCell;
 		}
 
+		function getDocumentByMd5(stringMD5) {
+			$("#documentMd5").attr('value', stringMD5);
+			$("#fileForm").submit();
+		}
+		
 		function requestTrade() {
 			$.ajax({
-				url : "allPendingTrades",
+				url : "<%= RequestMapConstant.allPendingTrades %>",
 				type : "POST",
 				success : function(data) {
 					refill(data);
 				}
 			});
 		}
-		function getDocumentByMd5(stringMD5) {
-			$("#documentMd5").attr('value', stringMD5);
-			$("#fileForm").submit();
-		}
+
 		function dueAPendingTrade(orderId) {
 			$.ajax({
-				url : "dueAPendingTrade",
+				url : "<%= RequestMapConstant.dueAPendingTrade %>",
 				type : "POST",
 				data : {
 					tradeId : orderId

@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,14 +25,17 @@ import pfpsc.constant.EntityPropertyConstant;
 import pfpsc.constant.RequestMapConstant;
 import pfpsc.constant.CodeConstant;
 import pfpsc.constant.SessionConstant;
-import pfpsc.dao.impl.notused.TradeMapper;
+import pfpsc.dao.impl.TradeMapper;
 import pfpsc.model.pojo.Document;
 import pfpsc.model.pojo.Shop;
 import pfpsc.model.pojo.Trade;
 import pfpsc.model.pojo.User;
+import pfpsc.model.render.OrderForCustomer;
+import pfpsc.model.render.OrderForShop;
 import pfpsc.service.impl.IDueOrderService;
 import pfpsc.service.impl.IFileService;
 import pfpsc.service.impl.IRelatedObjectService;
+import pfpsc.service.impl.IRenderService;
 import pfpsc.util.DocumentManager;
 
 @Controller
@@ -46,16 +50,23 @@ public class FinishOrderJsonController {
 	@Autowired
 	IFileService fileService;
 	
-	@RequestMapping(RequestMapConstant.allPendingTrades)
+	@Autowired
+	IRenderService renderService;
+	
+	@RequestMapping(RequestMapConstant.allReadyTrades)
 	@ResponseBody
-	List<Trade> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
+	List<OrderForCustomer> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
 		Shop shop=relatedObjectService.selectShopByUser(user);
 		List<Trade> trades=dueOrderService.selectAllPendingTrades(shop);
-		return trades;
+		List<OrderForCustomer> orders=new ArrayList<OrderForCustomer>();
+		for(Trade item:trades) {
+			orders.add(renderService.renderOrderForCustomer(item));
+		}
+		return orders;
 	}
 	
-	@RequestMapping(RequestMapConstant.dueAPendingTrade)
+	@RequestMapping(RequestMapConstant.finishAReadyTrade)
 	@ResponseBody
 	String dueAPendingTrade(HttpServletRequest request, HttpServletResponse httpServletResponse, @RequestParam("tradeId")Integer tradeId) {
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);

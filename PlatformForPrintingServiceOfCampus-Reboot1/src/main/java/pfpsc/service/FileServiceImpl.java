@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import pfpsc.dao.impl.notused.DocumentMapper;
+import pfpsc.dao.impl.DocumentMapper;
 import pfpsc.exception.DefinedException;
 import pfpsc.model.pojo.Document;
 import pfpsc.service.impl.IFileService;

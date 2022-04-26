@@ -32,13 +32,13 @@
 <body>
 	<div id="app">
 		<div class="main-wrapper">
-User user=(User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
+			<% User user1=(User)request.getSession().getAttribute(SessionConstant.SESSION_USER); %>
 			<%@include file="./assets/pageRef/navbar.jsp"%>
 			<% if(EntityPropertyConstant.USER_PROPERTY_CUSTOMER.toString()
-					.equals(user.getProperty())){ %>
+					.equals(user1.getProperty())){ %>
 				<%@include file="./assets/pageRef/sidebar_customer.jsp"%>
 			<% }else if(EntityPropertyConstant.USER_PROPERTY_SHOPPER.toString()
-					.equals(user.getProperty())){ %>
+					.equals(user1.getProperty())){ %>
 				<%@include file="./assets/pageRef/sidebar_shop_owner.jsp"%>
 			<% } %>
 			<!-- Main Content -->

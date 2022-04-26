@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -42,7 +43,7 @@
 							</div>
 
 							<div class="card-body">
-								<form id="form" method="POST" action="login"
+								<form id="form" method="POST"
 									class="needs-validation" novalidate="">
 									<div class="form-group">
 										<label for="phone">手机号码</label> <input id="phone"
@@ -86,7 +87,7 @@
 							</div>
 						</div>
 						<div class="mt-5 text-muted text-center">
-							没有帐号？<a href="auth-register_customer.html">注册一个</a>。也可以先不注册<a
+							没有帐号？<a href="<%= RequestMapConstant.register %>">注册一个</a>。也可以先不注册<a
 								href="#">快速创建订单</a>！
 						</div>
 						<div class="simple-footer">Copyright &copy; Ch3225, 2022</div>
@@ -139,13 +140,13 @@
 	<script>
 		$("#submit").click(function() {
 			$.ajax({
-				url : 'login',
+				url : " <%=RequestMapConstant.vertifyLogin%> ",
 				type : "POST",
 				data : $('#form').serialize(),
 				success : function(data) {
 					var myArr = JSON.parse(data);
 					if (data == "100") {
-						window.location.replace("index");
+						window.location.replace("<%=RequestMapConstant.index%>");
 					} else if(data == "101"){
 						var element = document.getElementById("logininfo");
 						element.innerHTML="您输入的用户名或密码有误";

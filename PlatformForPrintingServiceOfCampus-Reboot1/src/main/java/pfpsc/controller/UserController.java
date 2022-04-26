@@ -19,9 +19,17 @@ public class UserController {
 	IUserService userService;
 	
     @RequestMapping(RequestMapConstant.index)
-    public String blank_customer(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
+    public String index(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
     	return PageNameConstant.index;
     }
     
+    @RequestMapping(RequestMapConstant.login)
+    public String login(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
+    	return PageNameConstant.login;
+    }
     
+    @RequestMapping(RequestMapConstant.register)
+    public String register(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
+    	return PageNameConstant.register;
+    }
 }

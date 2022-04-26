@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,15 +25,17 @@ import pfpsc.constant.EntityPropertyConstant;
 import pfpsc.constant.RequestMapConstant;
 import pfpsc.constant.CodeConstant;
 import pfpsc.constant.SessionConstant;
-import pfpsc.dao.impl.notused.TradeMapper;
+import pfpsc.dao.impl.TradeMapper;
 import pfpsc.model.pojo.Document;
 import pfpsc.model.pojo.Shop;
 import pfpsc.model.pojo.Trade;
 import pfpsc.model.pojo.User;
+import pfpsc.model.render.OrderForShop;
 import pfpsc.service.impl.IDueOrderService;
 import pfpsc.service.impl.IFileService;
 import pfpsc.service.impl.IFinishOrderService;
 import pfpsc.service.impl.IRelatedObjectService;
+import pfpsc.service.impl.IRenderService;
 import pfpsc.util.DocumentManager;
 
 @Controller
@@ -50,15 +53,22 @@ public class DueOrderJsonController {
 	@Autowired
 	IFinishOrderService finishOrderService;
 	
-	@RequestMapping(RequestMapConstant.allReadyTrades)
+	@Autowired
+	IRenderService renderService;
+	
+	@RequestMapping(RequestMapConstant.allPendingTrades)
 	@ResponseBody
-	List<Trade> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
+	List<OrderForShop> selectAllPendingTrades(HttpServletRequest request, HttpServletResponse httpServletResponse){
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);
-		List<Trade> trades=finishOrderService.selectAllReadyTrades(user);
-		return trades;
+		List<Trade> trades=dueOrderService.selectAllPendingTrades(relatedObjectService.selectShopByUser(user));
+		List<OrderForShop> orders=new ArrayList<OrderForShop>();
+		for(Trade item:trades) {
+			orders.add(renderService.renderOrderForShop(item));
+		}
+		return orders;
 	}
 	
-	@RequestMapping(RequestMapConstant.finishAPendingTrade)
+	@RequestMapping(RequestMapConstant.dueAPendingTrade)
 	@ResponseBody
 	String dueAPendingTrade(HttpServletRequest request, HttpServletResponse httpServletResponse, @RequestParam("tradeId")Integer tradeId) {
 		User user = (User)request.getSession().getAttribute(SessionConstant.SESSION_USER);

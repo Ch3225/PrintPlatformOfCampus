@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -28,7 +29,7 @@
 		</div>
 		<script>
 			function dueOrder() {
-				window.location.replace("dueOrder");
+				window.location.replace("<%= RequestMapConstant.dueOrder %>");
 			}
 		</script>
 	</aside>

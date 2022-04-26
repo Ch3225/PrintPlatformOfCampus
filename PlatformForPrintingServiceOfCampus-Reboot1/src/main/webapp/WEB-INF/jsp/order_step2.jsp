@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@page import="pfpsc.constant.QuestionNaireConstant"%>
 <%@page import="pfpsc.model.define.Answer"%>
 <%@page import="pfpsc.model.define.Question"%>
@@ -61,7 +62,7 @@
 									for (Answer answer : question.getAnswerList()) {
 									%>
 									<option value="<%=answer.getAid()%>"
-										<%=answer.getAid() == question.getDefaultAnswer() ? "select=\"selected\"" : ""%>>
+										<%=answer.getAid() == question.getDefaultAnswer().getAid() ? "select=\"selected\"" : ""%>>
 										<%=answer.getNote()%>
 									</option>
 									<%
@@ -93,12 +94,12 @@
 	<script>
 		function next() {
 			$.ajax({
-				url : "addPrintMethod",
+				url : "<%= RequestMapConstant.addPrintMethod %>",
 				type : "POST",
 				data : $('#form').serialize(),
 				success : function(data) {
 					if(data=="100"){
-						window.location.replace("order_step3");
+						window.location.replace(<%= RequestMapConstant.order_step3 %>);
 					}
 					else{
 						//TODO

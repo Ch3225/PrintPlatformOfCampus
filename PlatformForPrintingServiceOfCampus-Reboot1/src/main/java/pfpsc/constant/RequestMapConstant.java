@@ -2,9 +2,13 @@ package pfpsc.constant;
 
 public class RequestMapConstant {
 	//In UserJsonController
-	public static final String login="login";
+	public static final String vertifyLogin="vertifylogin";
+	public static final String vertifyRegister="vertifyregister";
+	
 	//In UserController
 	public static final String index="index";
+	public static final String login="login";
+	public static final String register="register";
 	
 	//In PlaceOrderJsonController
 	public static final String createOrder="createOrder";
@@ -20,15 +24,15 @@ public class RequestMapConstant {
 	public static final String order_step4="order_step4";
 	
 	//In FinishOrderJsonController
-	public static final String allPendingTrades="allPendingTrades";
-	public static final String dueAPendingTrade="dueAPendingTrade";
+	public static final String allReadyTrades="allReadyTrades";
+	public static final String finishAReadyTrade="finishAReadyTrade";
 	public static final String document="document";
 	//In FinishOrderController
 	public static final String getPaperDocument="getPaperDocument";
 	
 	//In DueOrderJsonController
-	public static final String allReadyTrades="allReadyTrades";
-	public static final String finishAPendingTrade="finishAPendingTrade";
+	public static final String allPendingTrades="allPendingTrades";
+	public static final String dueAPendingTrade="dueAPendingTrade";
 	//In DueOrderController
 	public static final String dueOrder="dueOrder";
 }

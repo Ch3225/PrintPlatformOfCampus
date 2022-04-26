@@ -19,9 +19,23 @@ import org.xml.sax.SAXException;
 import pfpsc.model.define.Answer;
 import pfpsc.model.define.Question;
 import pfpsc.model.define.QuestionNaire;
+import pfpsc.util.MapUtility;
 
 public class QuestionNaireConstant {
 	public static Map<Integer,QuestionNaire> questionNaires;
+	
+	public static String translate(String string) {
+		QuestionNaire questionNaire=QuestionNaireConstant.getQuestionNaireByInformation(string);
+		return questionNaire.makeStringWithChoice(string);
+	}
+	
+	public static QuestionNaire getQuestionNaireByInformation(String string) {
+		String informationString=MapUtility.getInformationByString(string);
+		String substring = informationString.substring(1);
+		Integer integer=Integer.parseInt(substring);
+		return questionNaires.get(integer);
+	}
+	
 	public static void onLoad() {
 		questionNaires = new HashedMap<Integer,QuestionNaire>();
 		try {

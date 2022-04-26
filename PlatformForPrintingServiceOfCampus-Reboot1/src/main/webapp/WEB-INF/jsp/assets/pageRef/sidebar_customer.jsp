@@ -1,3 +1,4 @@
+<%@page import="pfpsc.constant.RequestMapConstant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -29,12 +30,12 @@
 		<script>
 			function newOrder() {
 				$.ajax({
-					url : 'createOrder',
+					url : "<%= RequestMapConstant.createOrder %>",
 					type : "POST",
 					success : function(data) {
 						var myArr = JSON.parse(data);
 						if (data != 0) {
-							window.location.replace("order_step1");
+							window.location.replace("<%= RequestMapConstant.order_step1 %>");
 						}
 					}
 				});
